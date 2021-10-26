@@ -1,24 +1,44 @@
 <template>
     <main>
         <div>
-            <input type="number" name="lat" v-model="lat" value="this.clima.latitud">
-            <input type="number" name="lon" v-model="lon" value="this.clima.longitud">
-            <button type="button" v-on:click="consultarClima">Consultar</button>  
-            <hr>
+            <b-container>
+                <b-row>
+                    <b-col>
+                        <b-card-group>
+                            <b-card  text-variant="white"  class="text-center mb-5"  bg-variant="primary">
+                                <b-card-body>
+                                    <b-icon icon="geo-alt-fill" animation="cylon-vertical" font-scale="2" variant="white" ></b-icon><br><br>
+                                    <div>
+                                        <input type="number" name="lat" v-model="lat" value="this.clima.latitud">
+                                        <input type="number" name="lon" v-model="lon" value="this.clima.longitud"><br>
+                                        <button type="button" v-on:click="consultarClima">Consultar</button>  
+                                        <hr>
+                                         <b-icon icon="brightness-high" animation="throb" font-scale="6" variant="white" ></b-icon>
+                                        <Temperatura
+                                            :temperatura="this.clima.temperatura"
+                                            :sensacion="this.clima.sensacion"
+                                            :temperaturaMax="this.clima.temperaturaMax"
+                                            :temperaturaMin="this.clima.temperaturaMin"
+                                            :nombreCiudad="this.clima.nombreCiudad">
+                                        </Temperatura>
+                                            <Clima
+                                            :sensacion="this.clima.sensacion"
+                                            :humedad="this.clima.humedad"
+                                            :estadoClima="this.clima.estadoClima"
+                                            :descripcion="this.clima.descripcion">
+                                        </Clima>
+
+                                    </div>
+                                </b-card-body>
+                            </b-card>
+                        </b-card-group>
+                    </b-col>
+                </b-row>
+            </b-container>
         </div>
-        <Temperatura
-            :temperatura="this.clima.temperatura"
-            :sensacion="this.clima.sensacion"
-            :temperaturaMax="this.clima.temperaturaMax"
-            :temperaturaMin="this.clima.temperaturaMin"
-            :nombreCiudad="this.clima.nombreCiudad">
-        </Temperatura>
-        <Clima
-            :sensacion="this.clima.sensacion"
-            :humedad="this.clima.humedad"
-            :estadoClima="this.clima.estadoClima"
-            :descripcion="this.clima.descripcion">
-        </Clima>
+
+        
+       
     </main>
 
 </template>

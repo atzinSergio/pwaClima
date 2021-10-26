@@ -1,8 +1,8 @@
 <template>
   <div class="clima">
-        <h2 class="humedad">Humedad: {{humedad}}%</h2>
-        <h2 class="estadoClima"></h2>
-        <h2 class="descripcion">{{descripcion}}</h2>
+      <h2 class="humedad">Humedad: {{humedad}}%</h2>
+      <h2 class="estadoClima"></h2>
+      <h2 class="descripcion">{{descripcion}}</h2>
   </div>
 </template>
 
