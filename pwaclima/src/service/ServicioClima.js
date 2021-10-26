@@ -44,7 +44,8 @@ class ServicioClima{
             humedad: 0,
             estadoClima: "",
             metrica: "",
-            descripcion: "No se pudieron obtener los datos del clima :(, intenta de nuevo más tarde. "
+            descripcion: "No se pudieron obtener los datos del clima :(, intenta de nuevo más tarde. ",
+            icono: 0
 
         }
     }
@@ -66,21 +67,31 @@ class ServicioClima{
     }
 
     obtenerIdClima(id){
+        if(id > 100 && id < 199){ 
+            return 1 //Icono tormenta
+           //return require('../assets/electrica_dark.png');
+        }
         if(id > 199 && id < 233){ 
-            return 2 //Icono tormenta
+            //return 2 //Icono tormenta
+            return ('../assets/electrica_dark.png');
         }
         if(id > 299 && id < 322){
-            return 3 //Icono llovizna
+           // return 3 //Icono llovizna
+            return ('../assets/chubascos_dark.png');
         }
         if(id > 499 && id < 532){
-            return 4 //Icono lluvia
+           // return 4 //Icono lluvia
+           return ('../assets/lluvia_dark.png');
         }
         if(id > 599 && id < 623){
-            return 5 //Icono nieve
+           // return 5 //Icono nieve
+           return ('../assets/nevada_dark.png');
         }
         if(id <= 199){
             return 0
         }
     }
+    
+   
 }
 export default ServicioClima;

@@ -1,8 +1,10 @@
 <template>
   <div class="temperatura">
+        <img class="icono" :src=icono>{{icono}}
+        <h2 class="icono">icono:</h2>
         <h2 class="nombreCiudad">Ciudad: {{nombreCiudad}}</h2>
         <hr>
-        <h3 class="temperatura">Temperatura actual: {{(getMetrica === 'C')? temperatura: tempF}} °<a @click.prevent="cambiarMetrica">{{escala}}</a></h3> 
+        <h3 class="temperaturaa">Temperatura actual: {{(getMetrica === 'C')? temperatura: tempF}} °<a @click.prevent="cambiarMetrica">{{escala}}</a></h3> 
         <h3 class="sensacion">Sensacion térmica: {{(getMetrica === 'C')? sensacion : senF}} °{{escala}}</h3>
         <h3 class="temperaturaMax">Max: {{(getMetrica === 'C')? temperaturaMax : maxTempF}} °{{escala}}</h3>
         <h3 class="temperaturaMin">Min: {{(getMetrica === 'C')? temperaturaMin : minTempF}} °{{escala}}</h3>
@@ -18,7 +20,8 @@ export default {
     sensacion: Number,
     temperaturaMax: Number,
     temperaturaMin: Number,
-    nombreCiudad: String
+    nombreCiudad: String,
+    icono: Number
   },
   data(){
     return{
@@ -33,7 +36,7 @@ export default {
        return this.farenheit(this.sensacion)
      },
       tempF(){
-        return this.farenheit(this.temperatura)
+        return this.farenheit(this.temperaturaa)
       },
       maxTempF(){
         return this.farenheit(this.temperaturaMax)

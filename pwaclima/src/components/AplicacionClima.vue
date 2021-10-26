@@ -15,6 +15,7 @@
                                         <hr>
                                          <b-icon icon="brightness-high" animation="throb" font-scale="6" variant="white" ></b-icon>
                                         <Temperatura
+                                            :icono="this.clima.icono"
                                             :temperatura="this.clima.temperatura"
                                             :sensacion="this.clima.sensacion"
                                             :temperaturaMax="this.clima.temperaturaMax"
@@ -96,6 +97,7 @@ export default {
     updated: function(){
             localStorage.setItem('clima', JSON.stringify(this.clima))
     }
+   
     
 }
 
