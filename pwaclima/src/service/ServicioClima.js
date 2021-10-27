@@ -6,12 +6,14 @@ class ServicioClima{
         this.temperaturaMax = 0
         this.temperaturaMin = 0
         this.nombreCiudad = ""
+        this.pais = ""
         this.sensacion = 0
         this.humedad = 100
         this.estadoClima = ""
         this.descripcion = "Realiza una búsqueda por coordenadas para obtener el estado del clima! :D"
         this.metrica = "C"
-        this.icono = 0
+        this.icono = require('../assets/parcialnublado_dark.png')
+        //<img class="icono" :src="icono" :alt="descripcion">
     }
 
     async actualizarClima(lat,lon){
@@ -23,6 +25,7 @@ class ServicioClima{
         }catch(e){
             datosClima = this.setErrorDatos()
         }
+        console.log(datosClima)
         this.llenarDatos(datosClima)
     }
 
@@ -40,12 +43,13 @@ class ServicioClima{
             temperaturaMax: 0,
             temperaturaMin: 0,
             nombreCiudad: "",
+            pais: "",
             sensacion: 0,
             humedad: 0,
             estadoClima: "",
             metrica: "",
             descripcion: "No se pudieron obtener los datos del clima :(, intenta de nuevo más tarde. ",
-            icono: 0
+            icono: ('../assets/parcialnublado_dark.png')
 
         }
     }
@@ -56,6 +60,7 @@ class ServicioClima{
         this.temperaturaMax = Math.round(datosClima.main.temp_max)
         this.temperaturaMin = Math.round(datosClima.main.temp_min)
         this.nombreCiudad = datosClima.name
+        this.pais = datosClima.sys.country
         this.sensacion = Math.round(datosClima.main.feels_like)
         this.humedad = datosClima.main.humidity
         this.estadoClima = datosClima.weather[0].main
@@ -67,29 +72,31 @@ class ServicioClima{
     }
 
     obtenerIdClima(id){
-        if(id > 100 && id < 199){ 
-            return 1 //Icono tormenta
-           //return require('../assets/electrica_dark.png');
-        }
-        if(id > 199 && id < 233){ 
+        if(id >= 200 && id <= 232){ 
             //return 2 //Icono tormenta
-            return ('../assets/electrica_dark.png');
+            console.log("Es tormenta")
+            return require('../assets/electrica_dark.png');
         }
-        if(id > 299 && id < 322){
+        if(id >= 300 && id <= 321){
            // return 3 //Icono llovizna
-            return ('../assets/chubascos_dark.png');
+           console.log("Es llovizna")
+            return require('../assets/chubascos_dark.png');
         }
-        if(id > 499 && id < 532){
+        if(id >= 500 && id <= 531){
            // return 4 //Icono lluvia
-           return ('../assets/lluvia_dark.png');
+           console.log("Es lluvia")
+           return require('../assets/lluvia_dark.png');
         }
-        if(id > 599 && id < 623){
+        if(id >= 600 && id <= 622){
            // return 5 //Icono nieve
-           return ('../assets/nevada_dark.png');
+           console.log("Es nieve")
+           return require('../assets/nevada_dark.png');
         }
-        if(id <= 199){
-            return 0
+        if(id === 800){
+            return require('../assets/soleado_dark.png')
         }
+        console.log("No es ninguna de las anteriores")
+        return require('../assets/parcialnublado_dark.png')
     }
     
    
