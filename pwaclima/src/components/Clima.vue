@@ -20,7 +20,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h2{
-  font-size: 19px;
+  font-size: 19vmim;
 }
 .clima{
   margin-top: 20px;

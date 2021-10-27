@@ -82,17 +82,27 @@ class ServicioClima{
            console.log("Es llovizna")
             return require('../assets/chubascos_dark.png');
         }
-        if(id >= 500 && id <= 531){
+        if(id == 500){
            // return 4 //Icono lluvia
            console.log("Es lluvia")
-           return require('../assets/lluvia_dark.png');
+           return require('../assets/parciallluvia_dark.png');
+        }
+        if(id >= 501 && id <= 531){
+            return require('../assets/lluvia_dark.png');
         }
         if(id >= 600 && id <= 622){
            // return 5 //Icono nieve
            console.log("Es nieve")
            return require('../assets/nevada_dark.png');
         }
-        if(id === 800){
+        if(id == 781){
+            //tornado
+            return require('../assets/viento_dark.png');
+        }
+        if(id == 800){
+            return require('../assets/soleado_dark.png')
+        }
+        if(id >= 801 && 804 <= id){
             return require('../assets/soleado_dark.png')
         }
         console.log("No es ninguna de las anteriores")

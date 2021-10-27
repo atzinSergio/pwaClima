@@ -65,7 +65,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h3{
-  font-size: 25px;
+  font-size: vmin;
 }
 .img-fluid{
   max-width: 35%;

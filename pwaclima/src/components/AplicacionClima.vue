@@ -7,9 +7,18 @@
                         <b-card-body class="contenedor">
                             <b-icon icon="geo-alt-fill" animation="cylon-vertical" font-scale="1.5" variant="white"></b-icon><br><br>
                             <div >
-                                <input type="number" name="lat" v-model="lat" value="this.clima.latitud">
-                                <input type="number" name="lon" v-model="lon" value="this.clima.longitud"><br>
-                                <button type="button" v-on:click="consultarClima">Consultar</button>  
+                                
+                                <div class="mb-3">
+                                    <b-button   b-button a v-b-toggle href="#example-collapse" @click.prevent>Ubicacion</b-button>
+                                </div>
+
+                                <b-collapse id="example-collapse" bg-variant="Default">
+                                    <b-card title="Collapsible card" >
+                                        <input type="number" name="lat" v-model="lat" value="this.clima.latitud">
+                                        <input type="number" name="lon" v-model="lon" value="this.clima.longitud"><br>
+                                        <button type="button" v-on:click="consultarClima">Consultar</button>  
+                                    </b-card>
+                                </b-collapse> 
                                 <hr>
                                 <Temperatura
                                     :nombreCiudad="this.clima.nombreCiudad"
@@ -42,6 +51,7 @@
 import ServicioClima from '../service/ServicioClima'
 import Clima from './Clima'
 import Temperatura from './Temperatura'
+
 
 export default {
     name: 'AplicacionClima',
