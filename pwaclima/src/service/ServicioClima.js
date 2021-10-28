@@ -64,7 +64,7 @@ class ServicioClima{
         this.sensacion = Math.round(datosClima.main.feels_like)
         this.humedad = datosClima.main.humidity
         this.estadoClima = datosClima.weather[0].main
-        this.descripcion = datosClima.weather[0].description
+        this.descripcion = datosClima.weather[0].description.charAt(0).toUpperCase() + datosClima.weather[0].description.slice(1)
         this.icono = this.obtenerIdClima(datosClima.weather[0].id)
         this.metrica = "C"
         
@@ -81,11 +81,6 @@ class ServicioClima{
            // return 3 //Icono llovizna
            console.log("Es llovizna")
             return require('../assets/chubascos_dark.png');
-        }
-        if(id == 500){
-           // return 4 //Icono lluvia
-           console.log("Es lluvia")
-           return require('../assets/parciallluvia_dark.png');
         }
         if(id >= 501 && id <= 531){
             return require('../assets/lluvia_dark.png');

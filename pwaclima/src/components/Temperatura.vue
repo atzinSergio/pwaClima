@@ -2,12 +2,39 @@
   <div id="temp">
     <h3 class="nombreCiudad">{{nombreCiudad}}</h3>
     <img class="img-fluid" :src="icono">
-    <div class="info">
-      <h3 class="temperatura">Temperatura actual: {{(getMetrica === 'C')? temperatura: tempF}} °<span id="e"><a @click.prevent="cambiarMetrica">{{escala}}</a></span></h3> 
-      <h3 class="sensacion">Sensacion térmica: {{(getMetrica === 'C')? sensacion : senF}} °{{escala}}</h3>
-      <h3 class="temperaturaMax">Max: {{(getMetrica === 'C')? temperaturaMax : maxTempF}} °{{escala}}</h3>
-      <h3 class="temperaturaMin">Min: {{(getMetrica === 'C')? temperaturaMin : minTempF}} °{{escala}}</h3>
+    <div class="container-fluid">
+      <div class="row">
+
+        <div class="col-4">
+          <h3 class="temperatura">{{(getMetrica === 'C')? temperatura: tempF}}</h3> 
+        </div>
+        <div class="col-2" style="margin-top: 10px; padding-left: 10px;">
+          <p class="grados">°<a @click.prevent="cambiarMetrica">{{escala}}</a> </p>
+        </div>
+        
+
+        <div class="col-6" >
+          <div class="container-fluid">
+            <div class="row">
+               <div class="col-12" style="margin-top: 10px;">
+                  <img src="../assets/tempMax.png" id="imgTemp" style="width: 8vw; heigh: auto;">
+                  <span class="maxMin"><p class="temperaturaMax"> {{(getMetrica === 'C')? temperaturaMax : maxTempF}}°</p> </span>
+              </div>
+            </div>
+            <div class="row">
+               <div class="col-12" >
+                  <img src="../assets/tempMin.png" id="imgTemp" style="width: 8vw; heigh: auto;">
+                  <span class="maxMin"><p class="temperaturaMin"> {{(getMetrica === 'C')? temperaturaMin : minTempF}}°</p></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sensacionTermica">
+        <h3 class="sensacion">Sensacion: {{(getMetrica === 'C')? sensacion : senF}} °{{escala}}</h3>
+      </div>
     </div>
+
   </div>
 </template>
 
@@ -68,11 +95,34 @@ h3{
   font-size: vmin;
 }
 .img-fluid{
-  max-width: 35%;
+  max-width: 30%;
   height: auto;
-  margin: -15px;
 }
-.info{
-  margin-top: -25px;
+.nombreCiudad{
+  font-size: 6vw;
+  font-weight: bold;
+}
+p{
+  display: inline;
+}
+.maxMin{
+  font-size: 6vw;
+}
+.temperatura{
+  display: inline-block;
+  text-align: right;
+  font-size: 18vw;
+}
+.grados{
+  font-size: 8vw;  
+}
+a{
+  font-size: 8vw;  
+}
+a:hover {
+  color: rgba(232, 240, 245,0.1);
+}
+.sensacionTermica{
+  margin-top: 15px;
 }
 </style>

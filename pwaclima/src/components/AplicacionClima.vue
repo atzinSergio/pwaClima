@@ -1,46 +1,42 @@
 <template>
     <main>
-        <div>
-            <b-container>
-                <b-card-group>
-                    <b-card text-variant="white"  class="text-center"  bg-variant="Default">
-                        <b-card-body class="contenedor">
-                            <b-icon icon="geo-alt-fill" animation="cylon-vertical" font-scale="1.5" variant="white"></b-icon><br><br>
-                            <div >
-                                
-                                <div class="mb-3">
-                                    <b-button   b-button a v-b-toggle href="#example-collapse" @click.prevent>Ubicacion</b-button>
-                                </div>
-
-                                <b-collapse id="example-collapse" bg-variant="Default">
-                                    <b-card title="Collapsible card" >
-                                        <input type="number" name="lat" v-model="lat" value="this.clima.latitud">
-                                        <input type="number" name="lon" v-model="lon" value="this.clima.longitud"><br>
-                                        <button type="button" v-on:click="consultarClima">Consultar</button>  
-                                    </b-card>
-                                </b-collapse> 
-                                <hr>
-                                <Temperatura
-                                    :nombreCiudad="this.clima.nombreCiudad"
-                                    :icono="this.clima.icono"
-                                    :temperatura="this.clima.temperatura"
-                                    :sensacion="this.clima.sensacion"
-                                    :temperaturaMax="this.clima.temperaturaMax"
-                                    :temperaturaMin="this.clima.temperaturaMin"
-                                    >
-                                </Temperatura>
-                                <Clima
-                                    :humedad="this.clima.humedad"
-                                    :estadoClima="this.clima.estadoClima"
-                                    :descripcion="this.clima.descripcion">
-                                </Clima>
-                                    
-
-                            </div>
-                        </b-card-body>
-                    </b-card>
-                </b-card-group>
-            </b-container>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <b-button  v-b-toggle href="#example-collapse" @click.prevent id="btnUbicacion" class="btnUbi">
+                        <b-icon icon="geo-alt-fill" animation="cylon-vertical" font-scale="1.8" variant="white"></b-icon><br><br>
+                    </b-button>
+                    <b-collapse id="example-collapse" bg-variant="Light">
+                        <b-card title="Latitud y Longitud" >
+                            <input type="number" name="lat" v-model="lat" value="this.clima.latitud">
+                            <input type="number" name="lon" v-model="lon" value="this.clima.longitud"><br>
+                            <button id="consultar" type="button" v-on:click="consultarClima">Consultar</button>  
+                        </b-card>
+                    </b-collapse>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <Temperatura
+                    :nombreCiudad="this.clima.nombreCiudad"
+                    :icono="this.clima.icono"
+                    :temperatura="this.clima.temperatura"
+                    :sensacion="this.clima.sensacion"
+                    :temperaturaMax="this.clima.temperaturaMax"
+                    :temperaturaMin="this.clima.temperaturaMin"
+                    >
+                    </Temperatura>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <Clima
+                            :humedad="this.clima.humedad"
+                            :estadoClima="this.clima.estadoClima"
+                            :descripcion="this.clima.descripcion">
+                        </Clima>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </main>
@@ -110,9 +106,43 @@ export default {
 <style scoped>
 input{
     width: 35%;
+    margin-bottom: 10px;
 }
-.contenedor{
-    background: rgb(102,111,126);
-    background: linear-gradient(180deg, rgba(102,111,126,1) 0%, rgba(61,69,85,1) 100%);
+.btn:transition-property{
+    box-shadow: none;
+    border:  transparent;
+    color:  transparent;
+}
+.btnUbi{
+    margin-top: 30px;
+    background-color: transparent;
+    border:none;
+    box-shadow: none;
+}
+.btnUbi:focus{
+    background-color: transparent;
+    box-shadow: none;
+    border: transparent;
+}
+.btnUbi:hover{
+    background-color: transparent;
+    box-shadow: none;
+    border: transparent;
+}
+.card{
+    background-color: transparent;
+    border: transparent;
+    margin-bottom: 15px;
+}
+input{
+    background: transparent;
+    border-color: rgba(136,136,136,0.3);
+    color: rgba(232, 240, 245,0.85);
+}
+button{
+    border-radius: 12px;
+    background-color: transparent;
+    border-color: rgba(136,136,136,0.5);
+    color: rgba(232, 240, 245,0.85);
 }
 </style>
