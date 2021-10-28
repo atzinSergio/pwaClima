@@ -1,14 +1,40 @@
 <template>
-  <div class="temperatura">
-        <img class="icono" :src=icono>{{icono}}
-        <h2 class="icono">icono:</h2>
-        <h2 class="nombreCiudad">Ciudad: {{nombreCiudad}}</h2>
-        <hr>
-        <h3 class="temperaturaa">Temperatura actual: {{(getMetrica === 'C')? temperatura: tempF}} °<a @click.prevent="cambiarMetrica">{{escala}}</a></h3> 
-        <h3 class="sensacion">Sensacion térmica: {{(getMetrica === 'C')? sensacion : senF}} °{{escala}}</h3>
-        <h3 class="temperaturaMax">Max: {{(getMetrica === 'C')? temperaturaMax : maxTempF}} °{{escala}}</h3>
-        <h3 class="temperaturaMin">Min: {{(getMetrica === 'C')? temperaturaMin : minTempF}} °{{escala}}</h3>
+  <div id="temp">
+    <h3 class="nombreCiudad">{{nombreCiudad}}</h3>
+    <img class="img-fluid" :src="icono">
+    <div class="container-fluid">
+      <div class="row">
+
+        <div class="col-4">
+          <h3 class="temperatura">{{(getMetrica === 'C')? temperatura: tempF}}</h3> 
+        </div>
+        <div class="col-2" style="margin-top: 10px; padding-left: 10px;">
+          <p class="grados">°<a @click.prevent="cambiarMetrica">{{escala}}</a> </p>
+        </div>
         
+
+        <div class="col-6" >
+          <div class="container-fluid">
+            <div class="row">
+               <div class="col-12" style="margin-top: 10px;">
+                  <img src="../assets/tempMax.png" id="imgTemp" style="width: 8vw; heigh: auto;">
+                  <span class="maxMin"><p class="temperaturaMax"> {{(getMetrica === 'C')? temperaturaMax : maxTempF}}°</p> </span>
+              </div>
+            </div>
+            <div class="row">
+               <div class="col-12" >
+                  <img src="../assets/tempMin.png" id="imgTemp" style="width: 8vw; heigh: auto;">
+                  <span class="maxMin"><p class="temperaturaMin"> {{(getMetrica === 'C')? temperaturaMin : minTempF}}°</p></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sensacionTermica">
+        <h3 class="sensacion">Sensacion: {{(getMetrica === 'C')? sensacion : senF}} °{{escala}}</h3>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -21,7 +47,10 @@ export default {
     temperaturaMax: Number,
     temperaturaMin: Number,
     nombreCiudad: String,
-    icono: Number
+    icono:{
+      type: String,
+      required: true
+    }
   },
   data(){
     return{
@@ -36,7 +65,7 @@ export default {
        return this.farenheit(this.sensacion)
      },
       tempF(){
-        return this.farenheit(this.temperaturaa)
+        return this.farenheit(this.temperatura)
       },
       maxTempF(){
         return this.farenheit(this.temperaturaMax)
@@ -62,5 +91,38 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+h3{
+  font-size: vmin;
+}
+.img-fluid{
+  max-width: 30%;
+  height: auto;
+}
+.nombreCiudad{
+  font-size: 6vw;
+  font-weight: bold;
+}
+p{
+  display: inline;
+}
+.maxMin{
+  font-size: 6vw;
+}
+.temperatura{
+  display: inline-block;
+  text-align: right;
+  font-size: 18vw;
+}
+.grados{
+  font-size: 8vw;  
+}
+a{
+  font-size: 8vw;  
+}
+a:hover {
+  color: rgba(232, 240, 245,0.1);
+}
+.sensacionTermica{
+  margin-top: 15px;
+}
 </style>
