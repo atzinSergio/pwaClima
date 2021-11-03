@@ -90,11 +90,11 @@ class ServicioClima{
            console.log("Es nieve")
            return require('../assets/nevada_dark.png');
         }
-        if(id == 781){
+        if(id === 781){
             //tornado
             return require('../assets/viento_dark.png');
         }
-        if(id == 800){
+        if(id === 800){
             return require('../assets/soleado_dark.png')
         }
         if(id >= 801 && 804 <= id){

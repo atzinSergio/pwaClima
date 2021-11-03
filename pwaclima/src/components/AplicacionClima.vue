@@ -10,7 +10,10 @@
                         <b-card title="Latitud y Longitud" >
                             <input type="number" name="lat" v-model="lat" value="this.clima.latitud">
                             <input type="number" name="lon" v-model="lon" value="this.clima.longitud"><br>
-                            <button id="consultar" type="button" v-on:click="consultarClima">Consultar</button>  
+                            <b-button v-b-toggle href="#example-collapse" id="consultar" type="button" v-on:click="consultarClima">
+                                Consultar
+                            </b-button>
+                            <!-- <button id="consultar" type="button" v-on:click="consultarClima">Consultar</button>   -->
                         </b-card>
                     </b-collapse>
                 </div>
