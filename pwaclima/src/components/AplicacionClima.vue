@@ -75,8 +75,6 @@ export default {
             let valor = ""
             let coord = 0
             while(i<coordenada.length){
-                //  20° 07′ 21″ N
-                //  0123456789101112
                 if(coordenada.charAt(i) === ' '){
                     i++
                     continue
@@ -94,7 +92,6 @@ export default {
             if(coordenada.includes('S') || coordenada.includes('O') || coordenada.includes('s') || coordenada.includes('o')){
                 coord = coord * -1
             }
-            console.log("La coordenada es: ",coord)
             return coord
         },
 

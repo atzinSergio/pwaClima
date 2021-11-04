@@ -25,7 +25,6 @@ class ServicioClima{
         }catch(e){
             datosClima = this.setErrorDatos()
         }
-        console.log(datosClima)
         this.llenarDatos(datosClima)
     }
 
