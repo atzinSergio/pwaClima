@@ -1,29 +1,27 @@
 <template>
   <div id="temp">
     <h3 class="nombreCiudad">{{nombreCiudad}}</h3>
-    <img class="img-fluid" :src="icono">
+    <img class="img-fluid" :src="icono" style="width: 20vmin; heigh: auto;">
     <div class="container-fluid">
       <div class="row">
 
         <div class="col-4">
           <h3 class="temperatura">{{(getMetrica === 'C')? temperatura: tempF}}</h3> 
         </div>
-        <div class="col-2" style="margin-top: 10px; padding-left: 10px;">
+        <div class="col-2" style="padding-left: 10px;">
           <p class="grados">°<a @click.prevent="cambiarMetrica">{{escala}}</a> </p>
         </div>
-        
-
         <div class="col-6" >
           <div class="container-fluid">
             <div class="row">
-               <div class="col-12" style="margin-top: 10px;">
-                  <img src="../assets/tempMax.png" id="imgTemp" style="width: 8vw; heigh: auto;">
+               <div class="col-12">
+                  <img src="../assets/tempMax.png" id="imgTemp" style="width: 8vmin; heigh: auto;">
                   <span class="maxMin"><p class="temperaturaMax"> {{(getMetrica === 'C')? temperaturaMax : maxTempF}}°</p> </span>
               </div>
             </div>
             <div class="row">
                <div class="col-12" >
-                  <img src="../assets/tempMin.png" id="imgTemp" style="width: 8vw; heigh: auto;">
+                  <img src="../assets/tempMin.png" id="imgTemp" style="width: 8vmin; heigh: auto;">
                   <span class="maxMin"><p class="temperaturaMin"> {{(getMetrica === 'C')? temperaturaMin : minTempF}}°</p></span>
               </div>
             </div>
@@ -31,7 +29,7 @@
         </div>
       </div>
       <div class="sensacionTermica">
-        <h3 class="sensacion">Sensacion: {{(getMetrica === 'C')? sensacion : senF}} °{{escala}}</h3>
+        <h3 class="sensacion">Sensación: {{(getMetrica === 'C')? sensacion : senF}} °{{escala}}</h3>
       </div>
     </div>
 
@@ -94,35 +92,33 @@ export default {
 h3{
   font-size: vmin;
 }
+
 .img-fluid{
-  max-width: 30%;
+  max-width: 35%;
   height: auto;
 }
 .nombreCiudad{
-  font-size: 6vw;
+  font-size: 5vmin;
   font-weight: bold;
 }
 p{
   display: inline;
 }
 .maxMin{
-  font-size: 6vw;
+  font-size: 6vmin;
 }
 .temperatura{
   display: inline-block;
   text-align: right;
-  font-size: 18vw;
+  font-size: 14vmin;
 }
 .grados{
-  font-size: 8vw;  
+  font-size: 6vmin;  
 }
 a{
-  font-size: 8vw;  
+  font-size: 6vmin;  
 }
 a:hover {
   color: rgba(232, 240, 245,0.1);
-}
-.sensacionTermica{
-  margin-top: 15px;
 }
 </style>

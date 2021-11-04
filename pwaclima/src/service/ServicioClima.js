@@ -39,18 +39,22 @@ class ServicioClima{
         return{
             lat: 0,
             lon: 0,
-            temperatura: 0,
-            temperaturaMax: 0,
-            temperaturaMin: 0,
-            nombreCiudad: "",
-            pais: "",
-            sensacion: 0,
-            humedad: 0,
-            estadoClima: "",
-            metrica: "",
-            descripcion: "No se pudieron obtener los datos del clima :(, intenta de nuevo más tarde. ",
-            icono: ('../assets/parcialnublado_dark.png')
-
+            main:{
+                temp: 0,
+                temp_max: 0,
+                temp_min: 0,
+                feels_like: 0,
+                humidity: 0
+            },
+            name: "",
+            sys:{
+                country: ""
+            },
+            weather: [{
+                main: ":(",
+                description: "No se pudieron obtener los datos del clima :(, intenta de nuevo más tarde.",
+                id: 801
+            }]
         }
     }
     llenarDatos(datosClima){
@@ -90,11 +94,11 @@ class ServicioClima{
            console.log("Es nieve")
            return require('../assets/nevada_dark.png');
         }
-        if(id == 781){
+        if(id === 781){
             //tornado
             return require('../assets/viento_dark.png');
         }
-        if(id == 800){
+        if(id === 800){
             return require('../assets/soleado_dark.png')
         }
         if(id >= 801 && 804 <= id){
